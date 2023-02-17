@@ -377,6 +377,8 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  background-color: #f5f5f5;
+  padding: 1rem;
 }
 
 h3 {
@@ -420,12 +422,12 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  color: #eb5424;
   text-decoration: none;
 }
 
 a:hover {
-  color: #065b83;
+  color: #f69653;
   text-decoration: underline;
 }
 
@@ -683,6 +685,7 @@ a:hover {
 
 .p-2 {
   padding: 0.625rem;
+  background-color: #f8dfc2;
 }
 
 .p-3 {
@@ -912,7 +915,7 @@ a:hover {
 }
 
 .text-link {
-  color: #1b89bc !important;
+  color: #eb5424 !important;
 }
 
 /* BACKGROUND UTILS */
@@ -945,7 +948,7 @@ a:hover {
 }
 
 .bg-link {
-  background-color: #1b89bc !important;
+  background-color: #eb5424 !important;
 }
 
 /* DISPLAY */
@@ -1009,21 +1012,21 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
-  color: #d9e9e8;
+  background-color: #eb5424;
+  color: #ffffff;
 }
 
 .btn.btn-primary:hover {
-  background-color: #57779a;
+  background-color: #f69653;
 }
 
 .btn.btn-danger {
-  background-color: #e64c66;
+  background-color: #eb5424;
   color: #ffffff;
 }
 
 .btn.btn-danger:hover {
-  background-color: #ee8294;
+  background-color: #f69653;
 }
 
 .btn.btn-info {
@@ -1072,7 +1075,7 @@ a:hover {
 }
 
 .btn.btn-link {
-  background-color: #1b89bc;
+  background-color: #eb5424;
   color: #ffffff;
 }
 
