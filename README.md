@@ -1,47 +1,9 @@
-<!-- 
-## Acceptance Criteria
-
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
-WHEN I click on the homepage option
-THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-THEN I am prompted to either sign up or sign in
-WHEN I choose to sign up
-THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments -->
-
-
-# Tech Vlog
+# Tech Vlog Slay
 
   ## Description
-CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. 
+  CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. 
 
-  Tech Vlog Slay allows a user to manage employee information in a company database. The user can view the departments, roles, employees and their details such as the salary, department and manager they report to. They can also add to and edit the database by adding new departments, roles, employees and update the role of an employee.
+  Tech Vlog Slay allows a user to create an account and make blog posts.
 
   ## Table of Contents
   * [Prerequisites](#prerequisites)
@@ -52,53 +14,40 @@ CMS-style blog site similar to a Wordpress site, where developers can publish th
 
   ## Getting Started
 
-  ### Prerequisites
-  * In order to run the app, you'll need to have [Node.js](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/about-npm) installed on your local machine.
-
-  ### Installing
-  * Clone the repository to your local machine.
-  * Open the terminal and navigate to the project directory.
-  * Run `npm install` to install all the required packages.
-  * Run the app by typing `node app.js` or `npm start` in the terminal.
+  Access the deployed app here: 
+  [Tech Vlog Slay](https://tech-vlog-slay.herokuapp.com/)
 
   ## Usage
 
   ### App Functionality
-  * Running the app prompts user with options on what to do next: 
 
-  ![Start-up](assets/Startup.png)
+  Running the app for the first time, the user is presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in.
 
-  * View All Departments - displays a table of all departments with their id.
-  
-  ![Departments](assets/Departments.png)
+  ![Start-up](assets/1.png)
 
-  * View All Roles - displays a table of all roles with the job title, role id, the department that role belongs to, and the salary.
+  When a user clicks on the homepage option, they are taken to the homepage and presented with any exisiting blog posts that include the post title and the date created. If they click another navation link (Login or Dashboard), they are prompted to either sign up or sign in.
 
-  ![Roles](assets/Roles.png)
+  ![Start-up](assets/2.png)
 
-  * View All Employees - displays a table of all employees with their ids, first names, last names, job titles, departments, salaries, and managers that the employees report to.
-  
-  ![Employees](assets/Employees.png)
+  If a user has previously created an account, they may sign in. Otherwise, a new account can be made using the forms.
 
-  * Add A Department - allows you to add a new department.
-  
-  ![Add A Department](assets/Add%20A%20Department.png)
+  ![Start-up](assets/3.png)
 
-  * Add A Role - allows you to add a new role.
+  Creating an account/signing in will redirect the user to their dashboard. On their Dasshboard, Here they have the option of creating  a new blog post.
 
-  ![Add A Role](assets/Add%20A%20Role.png)
+  The user will also now see the option to Logout.
 
-  * Add An Employee - allows you to add a new employee.
+  ![Start-up](assets/4.png)
 
-  ![Add An Employee](assets/Add%20An%20Employee.png)
+  The user will also see a list of previously posted blog posts. They are able to click into them to view or delete them if they wish to.
 
-  * Update An Employee Role - allows you to update the role of an employee.
+  ![Start-up](assets/5.png)
 
-  ![Update An Employee Role](assets/Update%20An%20Employee%20Role.png)
+  When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment.
 
-  ### Walk-through Video
-  To see all of these in action, take a look at this video.
-  [Link](https://github.com/internetjen)
+  ![Start-up](assets/6.png)
+
+  <!-- WHEN I enter a comment and click on the submit button while signed in THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created -->
 
   ## License
   N/A
