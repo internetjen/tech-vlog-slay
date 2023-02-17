@@ -21,6 +21,31 @@ const newFormHandler = async (event) => {
   }
 };
 
+const newCommentHandler = async (event) => {
+  event.preventDefault();
+  const commentBtn = document.querySelector('#commentBtn').value.trim();
+  // Get the project ID from the URL
+  const projectId = window.location.pathname.split('/').pop();
+   // Prompt the user for their comment text
+  const commentText = prompt('Enter your comment:');
+
+  if (commentBtn) {
+    const response = await fetch(`/api/projects/${projectId}/comments`, {
+      method: 'POST',
+      body: JSON.stringify({ text: commentText }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to create comment');
+    }
+  }
+};
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -37,6 +62,9 @@ const delButtonHandler = async (event) => {
   }
 };
 
+
+
+
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -44,3 +72,7 @@ document
 document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
+
+document
+.querySelector('#commentBtn')
+.addEventListener('click', newCommentHandler);
