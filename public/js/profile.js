@@ -1,3 +1,4 @@
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -17,34 +18,54 @@ const newFormHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to create project');
-    }
+    } 
   }
 };
+
 
 const newCommentHandler = async (event) => {
   event.preventDefault();
-  const commentBtn = document.querySelector('#commentBtn').value.trim();
-  // Get the project ID from the URL
-  const projectId = window.location.pathname.split('/').pop();
-   // Prompt the user for their comment text
-  const commentText = prompt('Enter your comment:');
+  const comment = document.querySelector('#comment-desc').value.trim();
+  const projectId = event.target.getAttribute('data-id'); // get project id from the form's data-id attribute
 
-  if (commentBtn) {
-    const response = await fetch(`/api/projects/${projectId}/comments`, {
-      method: 'POST',
-      body: JSON.stringify({ text: commentText }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  if (projectId) { // check if project id is valid
+    try {
+      const response = await fetch(`/api/projects/${projectId}/comments`, {
+        method: 'POST',
+        body: JSON.stringify({ comment }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create comment');
+      if (response.ok) {
+        const data = await response.json();
+        const comment = data.comment;
+
+        const commentList = document.querySelector('#comments-list');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = `
+          <div class="comment">
+            <p>${comment.text}</p>
+            <p class="postText">Posted by ${comment.user.name} on ${format_date(comment.date_created)}</p>
+          </div>
+        `;
+        commentList.appendChild(newComment);
+
+        document.querySelector('#comment-desc').value = '';
+      } else {
+        throw new Error('Failed to create comment');
+      }
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
     }
+  } else {
+    alert('Invalid project ID');
   }
 };
+
 
 
 const delButtonHandler = async (event) => {
@@ -64,8 +85,6 @@ const delButtonHandler = async (event) => {
 };
 
 
-
-
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -74,6 +93,6 @@ document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
 
-document
-.querySelector('#commentBtn')
-.addEventListener('click', newCommentHandler);
+  document
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', newCommentHandler);
